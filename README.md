@@ -62,5 +62,75 @@ microk8s kubectl create token default
 
 
 
+**Задание 2. Установка и настройка локального kubectl**
+
+1. Установить на локальную машину kubectl.
+
+2. Настроить локально подключение к кластеру.
+
+3. Подключиться к дашборду с помощью port-forward.
+
+
+**Решение 2**
+
+Устанавливаем kubectl на клиентскую машину для управления кластером
+
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/7.jpg)
+
+
+Создадим папку .kube и в ней создадим файлик config ТОЧНО ТАКОЙ ЖЕ КАК И НА МАСТЕР СЕРВЕРЕ
+
+Заполняем его содержимым файлика config с мастер сервера и видим что прописан будет наш мастер в конфиге 
+
+
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/8.jpg)
+
+
+Теперь на клиенте выполняем 
+
+```
+kubectl get nodes
+```
+
+и видим что у нас подтянулась наша мастер нода
+
+
+
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/9.jpg)
+
+
+Далее выполняем команду 
+
+
+```
+kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address 0.0.0.0
+```
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/10.jpg)
+
+
+И видим что на нашем айпиадресе клиента, запустился тот же самый дашборд что работает на ip адресе мастера
+
+
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/11.jpg)
+
+
+Это значит что кластер работает верно
+
+Теперь опять генерируем токен на машине мастера 
+
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/12.jpg)
+
+
+И заходим поод этим токеном в  В ЛЮБОЙ ВЕБ ИНТЕРФЕЙС    так как это кластер
+
+
+Я сгенерировал на мастер ноде, и авторизовался на kubectl клиент ноде
+
+И теперь зайди по ip адресу КЛИЕНТСКОЙ МАШИНЫ мы видим наш мастер microk8s
+
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/13.jpg)
+
+
+Теперь мы наглядно убелились как работает kubectl кластер
 
 
