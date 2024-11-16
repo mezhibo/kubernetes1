@@ -75,7 +75,7 @@ microk8s kubectl create token default
 
 Устанавливаем kubectl на клиентскую машину для управления кластером
 
-![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/7.jpg)
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/af16f3503af521852262d5a4c4633bd7f7d5d975/IMG/7.jpg)
 
 
 Создадим папку .kube и в ней создадим файлик config ТОЧНО ТАКОЙ ЖЕ КАК И НА МАСТЕР СЕРВЕРЕ
@@ -83,7 +83,7 @@ microk8s kubectl create token default
 Заполняем его содержимым файлика config с мастер сервера и видим что прописан будет наш мастер в конфиге 
 
 
-![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/8.jpg)
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/af16f3503af521852262d5a4c4633bd7f7d5d975/IMG/8.jpg)
 
 
 Теперь на клиенте выполняем 
@@ -96,7 +96,7 @@ kubectl get nodes
 
 
 
-![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/9.jpg)
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/af16f3503af521852262d5a4c4633bd7f7d5d975/IMG/9.jpg)
 
 
 Далее выполняем команду 
@@ -105,20 +105,20 @@ kubectl get nodes
 ```
 kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address 0.0.0.0
 ```
-![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/10.jpg)
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/af16f3503af521852262d5a4c4633bd7f7d5d975/IMG/10.jpg)
 
 
 И видим что на нашем айпиадресе клиента, запустился тот же самый дашборд что работает на ip адресе мастера
 
 
-![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/11.jpg)
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/af16f3503af521852262d5a4c4633bd7f7d5d975/IMG/11.jpg)
 
 
 Это значит что кластер работает верно
 
 Теперь опять генерируем токен на машине мастера 
 
-![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/12.jpg)
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/af16f3503af521852262d5a4c4633bd7f7d5d975/IMG/12.jpg)
 
 
 И заходим поод этим токеном в  В ЛЮБОЙ ВЕБ ИНТЕРФЕЙС    так как это кластер
@@ -128,7 +128,7 @@ kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --add
 
 И теперь зайди по ip адресу КЛИЕНТСКОЙ МАШИНЫ мы видим наш мастер microk8s
 
-![Image alt](https://github.com/mezhibo/kubernetes1/blob/cb6e64a9e12b242685d9fdbfc6a6e7b4fb1dbfc3/IMG/13.jpg)
+![Image alt](https://github.com/mezhibo/kubernetes1/blob/af16f3503af521852262d5a4c4633bd7f7d5d975/IMG/13.jpg)
 
 
 Теперь мы наглядно убелились как работает kubectl кластер
